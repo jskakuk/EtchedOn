@@ -1,0 +1,246 @@
+/*grid stylesheet*/
+
+*,*::after,*::before{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+[class^='col-'] {/*anything with col will take on these properties*/
+	float:left;
+	padding:0;
+	text-align:center;
+}
+.grid{
+	width:95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.col-2of10{  /* columns used for nav bar*/
+	width:20%;
+}
+
+.col-8of10{ /* used for white container info*/
+  width:80%;
+}
+
+.col-2of8{ /* used for product listing page*/
+	width:25%;
+}
+
+
+.col-3of8{ /*used for check out process bar*/
+	width:33.333333333%;
+}
+
+.col-4of8 { /* used for pages with forms*/
+  width: 50%;
+  padding: 0.5em 1em;
+}
+
+.col-6of8{
+	width:75%;
+}
+
+.col-8of8{
+  width:100%;
+}
+
+/* media queries*/
+
+
+@media (max-width:100em){
+  .col-8of10{
+    width:100%;
+  }
+}
+
+@media (max-width: 66em) {
+	.col-6of8{
+		width:100%;
+		margin-bottom: 1.5em;
+  	}
+}
+
+@media (max-width:62em){ /* at 62em, with column width becomes 50%, allowing 2 columns(product images) to be side by side*/
+	.col-2of8{
+		width:50%;
+	}
+
+	.product-content img, .suggested-product-images img{
+	width:100%;
+	}
+
+	.product-content .button{
+		margin-top: 1em !important;
+	}
+}
+
+
+@media (max-width:60em){
+	.blog-content-text, .product-details-content-text{
+		float:left; /*text wraps arnd image until 59, then floats left*/
+	}
+}
+
+@media (max-width:55em){ /* at 55 em, the columns should expand to 100% and take up whole screen*/
+	.col-2of10{
+		width:100%;
+	}
+
+	.nav-icons-selected, .nav-icons{
+	  width:34px !important;
+	  margin-right: 0.5em!important;
+	  margin-left: 0.5em!important;
+	}
+
+	nav a{  /*decrease margin or stacked menu*/
+		margin-top:0 !important;
+	}
+
+	.nav-icons-group a{
+	width:4em;
+	margin-left:auto;		
+	margin-right: auto;
+	margin-bottom: 2em;
+	}
+
+	.processbar h3{
+		font-size:1em; /*14 pt*/
+		margin:0;
+	}
+}
+
+@media (max-width:43em){
+	.col-2of8{ 
+		width:100%;  /* at 40em, with column width becomes 100%, and the product image becomes full size and stacks in 1 column*/
+	}
+
+	.col-3of8{
+		width:100%; /* at 40em, with column width becomes 100%, and the payment process bar become full size and stacks in 1 column*/
+	}
+
+	.col-4of8 {
+    width: 100%; /* at 40em, with column width becomes 100%, and the form inputs become full size and stacks in 1 column*/
+  	}
+
+	body{
+		padding:0 !important; /* decreases padding of beige borders*/
+	}
+
+	.home-text-group, .home-text-group-2, .home-text-group-3, .white-info-container, .bio-content{
+		padding: 0 1em 4em 1em!important; /* decreases padding of white space*/
+	}
+
+	.bio-content{
+		padding-top:2.5em!important;
+		padding-bottom: 0 !important; /* decreases padding of white space of bio page*/
+	}
+
+	.home-text-group h1, .home-text-group-2 h1, .home-text-group-3 h1{
+		margin-top: 3em !important;
+	}
+
+	.home-text-group-3 p{
+  		margin: 3em 0 -1.3em 0 !important;
+	}
+
+	#blog-comment-button a, #payment-button a, #purchase-button a{
+		margin-left:auto;
+		margin-right: auto;
+		width:100%;
+		text-align: center;
+	}
+
+	/* for the shopping bag table*/
+
+	.shoppingbag-summary table, .shoppingbag-summary thead, .shoppingbag-summary tbody, .shoppingbag-summary th, .shoppingbag-summary td, .shoppingbag-summary tr { 
+		display: inline-block;   /* force table to not be like tables anymore */
+		width:100%; 
+	}
+  
+	.shoppingbag-summary thead tr { 
+		display:none;   /* hide table headers */
+	}
+  
+	.shoppingbag-summary tr { 
+		border: 1px solid #c1c1c1; 
+	}
+  
+	.shoppingbag-summary td { 
+		border-bottom: 1px solid #eaeaea; 
+    	position: relative;   /* behave  like a "row" */
+    	padding-left: 45%;
+    	padding-top: 0.5em; 
+  	}
+  
+	.shoppingbag-summary td:before { 
+    	position: absolute;     /* mimics a table header */
+		top: 0.5em;
+		left: 0.5em;
+		width: 45%; 
+    	padding-right: 0.7em; 
+    	white-space: nowrap;
+  	}
+
+	.shoppingbag-summary select{
+		vertical-align: middle;
+	}
+  
+	/* Label the data for the compressed table*/
+	.shoppingbag-summary td:nth-of-type(1):before { 
+    	content: "Item"; 
+  	}
+
+  	.shoppingbag-summary td:nth-of-type(2):before { 
+    	content: ""; 
+ 	 }
+
+	.shoppingbag-summary td:nth-of-type(3):before { 
+		content: "Quantity"; 
+	}
+
+	.shoppingbag-summary td:nth-of-type(4):before { 
+		content: "Item Price"; 
+	}
+
+	.shoppingbag-summary td:nth-of-type(5):before { 
+		content: "Total Price";
+	}
+}
+
+
+@media (max-width:35em){
+	.dotted-line-separator hr{
+	  margin-top: 3em !important;
+	  margin-bottom: 1em !important;
+	}
+}
+
+
+@media (max-width:33em){
+	.card-option{
+		clear:left;
+		display:block;
+		margin-top: 2em !important;
+		margin-bottom: 0.5em !important;
+		margin-left: auto;
+		margin-right: auto;
+		width:100%;
+	}
+}
+
+
+
+.grid{
+	/*include these 3 codes in ur css as a safety mechanism*/
+	content: "";
+	display:block;
+	clear:both;
+}
+
+
